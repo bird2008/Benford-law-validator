@@ -1,7 +1,5 @@
 #Import library
-import numbers
 import re
-import pickle
 import matplotlib.pyplot as plt
 import random
 
@@ -17,7 +15,6 @@ firstDigits = []
 cleanNumbers = []
 resultPercentageNumber = 0
 countNumber = 0
-results = 0
 allResults = []
 
 
@@ -102,21 +99,11 @@ for number in range(1, 10):
 
 
 #Create diagram
-with open("diagram.txt", "wb") as text:
-    pickle.dump(allResults, text)
-
-try:
-    with open("diagram.txt", "rb") as text:
-        result = pickle.load(text)
-except:
-    print("First run count percentage program")
-    exit()
-
 digits = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 branford = [30.1, 17.6, 12.5, 9.7, 7.9, 6.7, 5.8, 5.1, 4.6]
 
 plt.plot(digits, branford)
-plt.plot(digits, result)
+plt.plot(digits, allResults)
 
 plt.grid(True)
 plt.title("First digits distribution")
